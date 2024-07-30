@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpineJS Bootcamp Widgets</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.2.3/dist/cdn.min.js" defer></script>
+    <script src="greet.js"></script>
+    <script src="wordgame.js"></script>
+    <script src="totalPhoneBill.js"></script>
+    <script src="enoughAirtime.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>AlpineJS Bootcamp Widgets</h1>
+    
+        <div x-data="greetWidget()">
+            <h2>Greet </h2>
+            <input x-model="name" placeholder="Enter your name">
+            <select x-model="language">
+                <option value="English">English</option>
+                <option value="French">French</option>
+                <option value="IsiZulu">IsiZulu</option>
+            </select>
+            <button @click="greet">Greet</button>
+            <p x-text="greeting"></p>
+        </div>
+        
+       
+        <div x-data="wordgame()">
+            <h1>Word Game</h1>
+        <label for="sentence">Enter a sentence:</label>
+        <input type="text" id="sentence" placeholder="Type your sentence here">
+        <button onclick="showLongestWord()">Find Longest Word</button>
+        <button onclick="showShortestWord()">Find Shortest Word</button>
+        <button onclick="showWordLengths()">Calculate Total Word Lengths</button>
+    </div>
+    <div class="result" id="result"></div>
+        </div>
+        
+       
+        <div x-data="totalPhoneBillWidget()">
+            <h2>Total Phone Bill </h2>
+            <h6>E.g call,sms</h6>
+            <input x-model="phoneString" placeholder="Enter phone usage string">
+            <button @click="calculateBill">Calculate Bill</button>
+            <p x-text="totalBill"></p>
+        </div>
+        
+       
+        <div x-data="enoughAirtimeWidget()">
+            <h2>Enough Airtime </h2>
+            <input x-model="usageString" placeholder="Enter usage string">
+            <input x-model="availableAirtime" placeholder="Enter available airtime">
+            <button @click="calculateAirtime">Calculate Airtime</button>
+            <p x-text="remainingAirtime"></p>
+        </div>
+    </div>
+</body>
+</html>
